@@ -1,1 +1,3 @@
-<h2>Orderbook</h2>
+<pre *ngIf="orders$ | async as orders">
+  {{ orders | json  }}
+</pre>
