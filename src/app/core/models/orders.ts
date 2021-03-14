@@ -87,10 +87,16 @@ export enum ProductIds {
  * Simplified map of buy/sells with the fiat interval as key and the size as value
  */
 export interface Orders {
-  asks: Record<string, number>;
-  bids: Record<string, number>;
+  asks: Order[];
+  bids: Order[];
   numLevels: number;
 }
+
+// Aliases to make the type more readable
+type price = number;
+type size = number;
+type total = number;
+export type Order = [price, size, total];
 
 /**
  * type guard for event messages

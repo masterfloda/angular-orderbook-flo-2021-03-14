@@ -1,0 +1,16 @@
+.orderbook {
+  display: flex;
+
+  table {
+    width: 50%;
+
+    &:first-of-type {
+      border-right: 1px solid grey;
+    }
+
+    th, td {
+      padding: 2px 5px;
+      text-align: right;
+    }
+  }
+}

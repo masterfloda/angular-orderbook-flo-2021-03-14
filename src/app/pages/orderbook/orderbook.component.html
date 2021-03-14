@@ -1,3 +1,36 @@
-<pre *ngIf="orders$ | async as orders">
-  {{ orders | json  }}
-</pre>
+<div *ngIf="orders$ | async as orders" class="orderbook">
+  <table>
+    <thead>
+    <tr>
+      <th>Total</th>
+      <th>Size</th>
+      <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders.bids">
+        <td>{{ order[2] | number }}</td>
+        <td>{{ order[1] | number }}</td>
+        <td>{{ order[0] | number:'1.2-2' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Price</th>
+      <th>Size</th>
+      <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of orders.asks">
+      <td>{{ order[0] | number:'1.2-2' }}</td>
+      <td>{{ order[1] | number }}</td>
+      <td>{{ order[2] | number }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
